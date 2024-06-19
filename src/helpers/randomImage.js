@@ -1,4 +1,5 @@
 const axios = require('axios');
+const CustomError = require("../models/CustomError");
 
 const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
 
@@ -40,7 +41,7 @@ const generateImageUrl = async (query, category = 'RANDOM') => {
         }
     } catch (error) {
         console.error('Error fetching random food image:', error);
-        throw new Error('Could not fetch random food image');
+        throw new CustomError(500, 'Could not fetch random food image');
     }
 };
 

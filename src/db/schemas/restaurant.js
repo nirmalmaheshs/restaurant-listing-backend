@@ -33,6 +33,16 @@ const restaurantSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    isVeg: {
+        type: Boolean,
+        default: false,
+    },
+    rating: {
+        type: Number,
+        required: false,
+        min: 0,
+        max: 5
+    },
     image: {
       type: String,
       required: true
