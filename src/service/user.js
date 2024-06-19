@@ -1,5 +1,5 @@
-const User = require('../db/schemas/user');
-const CustomError = require("../models/CustomError");
+const User = require('src/db/schemas/user');
+const CustomError = require("src/models/CustomError");
 
 const getUserByEmail = async (email) => {
     const user = await User.findOne({email: email});

@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const CustomError = require("../models/CustomError");
+const CustomError = require("src/models/CustomError");
 
 const auth = (req, res, next) => {
     const authHeader = req.header('Authorization');

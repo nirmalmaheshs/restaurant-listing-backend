@@ -1,10 +1,10 @@
 require('dotenv').config();
 const express = require("express");
 const cors = require('cors'); // Import cors
-const restaurantRoute = require("./routes/restaurant");
-const authRoute = require("./routes/auth");
-const errorHandler = require('./middleware/errorHandler');
-const connectDB = require("./db");
+const restaurantRoute = require("src/routes/restaurant");
+const authRoute = require("src/routes/auth");
+const errorHandler = require('src/middleware/errorHandler');
+const connectDB = require("src/db");
 
 const port = process.env.PORT || 3000;
 const app = express();
