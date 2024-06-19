@@ -1,9 +1,9 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require('src/db/schemas/user');
-const {checkIsUserExist, getUserByEmail} = require('src/service/user');
-const CustomError = require('src/models/CustomError');
+const User = require('../db/schemas/user');
+const {checkIsUserExist, getUserByEmail} = require("../service/user");
+const CustomError = require("../models/CustomError");
 const router = express.Router();
 
 const secretKey = process.env.JWT_SECRET || 'your_secret_key';

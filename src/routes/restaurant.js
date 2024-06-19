@@ -1,7 +1,7 @@
 const express = require('express');
-const auth = require("src/middleware/auth");
-const generateImageUrl = require("src/helpers/randomImage");
-const Restaurant = require("src/db/schemas/restaurant");
+const auth = require("../middleware/auth");
+const generateImageUrl = require("../helpers/randomImage");
+const Restaurant = require("../db/schemas/restaurant");
 const router = express.Router();
 
 router.post('/', auth, async (req, res) => {
