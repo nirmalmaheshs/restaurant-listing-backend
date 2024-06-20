@@ -5,15 +5,15 @@ const Restaurant = require("../db/schemas/restaurant");
 const router = express.Router();
 
 router.post('/', auth, async (req, res) => {
-    const randomFoodUrl = await generateImageUrl('food');
-    const {name, location, cuisine} = req.body;
+    const {name, location, cuisine, image} = req.body;
+    const restaurantImageUrl = image ? image : await generateImageUrl('food');
     let menu = req.body.menu ? req.body.menu : [];
     const updatedMenuItems = [];
     for (const item of menu) {
-        const url = await generateImageUrl( item.name, 'FOOD');
+        const url = item.image ? item.image : await generateImageUrl(item.image);
         updatedMenuItems.push({...item, image: url});
     }
-    const restaurant = new Restaurant({name, location, cuisine, image: randomFoodUrl, menu: updatedMenuItems});
+    const restaurant = new Restaurant({name, location, cuisine, image: restaurantImageUrl, menu: updatedMenuItems});
     const response = await restaurant.save();
     res.json(response);
 });
